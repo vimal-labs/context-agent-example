@@ -119,6 +119,36 @@ The latest Spring Boot version (as of early 2026) is **3.4.2**.
 ---
 
 ## 🧩 Extending
+---
+
+## 🆚 How Is This Different from RAG? 🤔
+
+**RAG (Retrieval-Augmented Generation)** is a popular approach where the AI model retrieves relevant documents from a large database (like a vector store or search engine) at query time, then uses those documents to answer the user's question. It's great for huge, ever-changing knowledge bases!
+
+**This Context Agent** takes a different path:
+
+- 🗂️ **Curated Context**: You hand-pick the knowledge files (markdown, docs, cheat sheets, memes) that the agent can use. No need for a search engine or vector database.
+- 🧩 **Deterministic & Transparent**: You always know *exactly* what context the agent sees—no surprises from a fuzzy retriever.
+- 🏎️ **Fast & Lightweight**: No retrieval step means less latency and fewer moving parts. Just load, prompt, and go!
+- 🛠️ **Easy to Extend**: Add or swap context files as needed. Great for demos, workshops, or tightly-scoped assistants.
+- 🔒 **No External Indexing**: All context stays local—no need to upload docs to a third-party service.
+
+- 🧮 **Token-Optimized for LLMs**: Only the context you select is included in the prompt, so you control the token count. No risk of overloading the LLM with huge, irrelevant chunks—making it efficient and predictable for context window limits.
+
+### When to Use This Over RAG?
+
+- You want full control over the agent's knowledge.
+- Your knowledge base is small-to-medium and doesn't change every minute.
+- You need a simple, demo-friendly, or air-gapped solution.
+- You want to avoid the complexity (and cost) of search infrastructure.
+
+### When RAG Might Be Better
+
+- Your knowledge base is huge, dynamic, or user-generated.
+- You need to answer questions from millions of documents.
+- You want automatic retrieval and ranking of relevant info.
+
+**In short:** This project is perfect for curated, transparent, and easily-extended context—while RAG shines for massive, dynamic, or search-heavy use cases. Pick your tool, and have fun! 🛠️🤓
 
 - Add more context files to the `context/` directory and include them in the `context_providers` array in `context-agent.py`.
 - Change prompts in the `prompt/` directory to experiment with different agent personalities. (Serious? Silly? Shakespearean? You decide!)

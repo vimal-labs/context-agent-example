@@ -21,7 +21,8 @@ Welcome to the **Context Agent Example**! This project shows you how to build a 
 context-agent-example/
 │
 ├── code/
-│   ├── context-agent.py         # Main entrypoint for the agent
+│   ├── context-agent.py         # Main entrypoint for the context agent
+│   ├── vanilla-agent.py         # Main entrypoint for the vanilla agent (no extra context)
 │   └── utils/
 │       ├── file_util.py         # Utility for reading files
 │       └── context_provider.py  # Utility for providing context to the agent
@@ -60,7 +61,8 @@ context-agent-example/
 
 4. **Run the agent**:
     ```sh
-    uv run python -m code.context-agent
+    uv run python -m code.context-agent      # Context agent (with extra knowledge)
+    uv run python -m code.vanilla-agent      # Vanilla agent (no extra knowledge)
     ```
 
 ---
@@ -76,6 +78,7 @@ context-agent-example/
 
 ## 🎉 Example Output
 
+### Context Agent (with extra knowledge)
 ```
 ========================================
         Context Agent Showcase
@@ -93,6 +96,24 @@ Agent Response:
 Spring Boot 10 is the latest version.
 
 you can trust this knowledge
+```
+
+### Vanilla Agent (no extra knowledge)
+```
+========================================
+        Vanilla Agent Showcase
+========================================
+
+System Prompt:
+you are helpful spring boot coder. helps user to solve springboot questions
+----------------------------------------
+User Prompt:
+what is the latest springboot version ?
+----------------------------------------
+
+Agent Response:
+========================================
+The latest Spring Boot version (as of early 2026) is **3.4.2**.
 ```
 
 ---
